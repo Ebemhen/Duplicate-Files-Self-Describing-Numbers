@@ -2,59 +2,95 @@
 #include<stdlib.h>
 #include<string.h>
 
-int main{
+int main(){   
+
     int number_of_inputs;
     int number_of_files;
-    char names_of_files[100][50]
-    int file_id[100]
-    int z
-    int least_id = 0
-    int comparable_string = 0;
-    
+    char file_names[number_of_files][50];
+    int files_id[number_of_files];
+
 
     FILE*sdfile;
-    dfile = fopen('/selfdescribing.txt' 'r');
-    if (dfile==NULL){
-        printf("File is empty")
+    sdfile = fopen("duplicate.txt", "r");
+    if (sdfile==NULL){
+        printf("File is empty");
         exit(0);    
     }
 
-    fscanf(dfile, "%d", number_of_inputs)
-    for (int i = 0; i< number_of_inputs; i++) {
-
-        fscanf(dfile,"%d", &number_of_files);
-
-        int p = 0;
-    
-        while (p<number_of_file) {
-            fscanf(dfile,"%s %d", names_of_files[p], &file_id[p]);
-            p++;
-        }
-
-        least_id = file_id[0]
-        for ( int u = 0; u < number_of_files; u ++){
-            for (int v = u+1; v < number_of_files; v++){
-            comparable_string = strcmp(names_of_file[u], name_of_file[v]);
-                if((strcmp(names_of_files[u], names_of_files[v]) == 0) &&  ( > file_id[u])){
-                    
-                    least_id = file_id[u];
-                }
-                else if((strcmp(names_of_file[u], names_of_files[v]) != 0) && (file_id[u] > file_id[v])){
-                    t = file_id[u];
-                    file_id[u] = least_id[i];
-                    file_id[v] = z;
-                }
-            }          
-        }               
-
-        for (int u = 0; u< number_file; u++) {
-            if (comparable_string != 0){
-                printf("%d\n", file_id[u]);
-            }
-        }
-        if (comparable_string == 0){
-            printf("%d\n", least_id);
-        }    
+    fscanf(sdfile, "%d", &number_of_inputs);
+    for(int a = 0; a< number_of_inputs; a++) {
+        fscanf(sdfile,"%d", &number_of_files);
         
-    }
+        for (int b = 0; b < number_of_files; b++)
+        {
+            int idNew;
+            char file_name[50];
+            fscanf(sdfile, "%s", file_name);
+            int existing_file;
+
+            for (int c = 0; c < number_of_files; c++)
+            {
+                if (!strcmp(file_names[c],file_name))
+                {
+                existing_file = c;
+                break;
+                }
+                else
+                {
+                    existing_file = -1;
+                }
+
+            }
+            
+            fscanf(sdfile, "%d", &idNew);
+
+            if (existing_file == -1)
+            {
+                strcpy(file_names[b], file_name);
+                files_id[b] = idNew;
+            }
+            else
+            {
+                if (files_id[existing_file] <= idNew)
+                {
+                    strcpy(file_names[b], file_name);
+                    files_id[b]= -1;
+                }
+                else
+                {
+                    strcpy(file_names[b], file_name);
+                    files_id[existing_file] = idNew;
+                    files_id[b] = -1;
+                }
+                
+            }
+        }  
+
+        int sortId;
+        for (int i = 0; i < number_of_files; i++)
+        {
+            for (int k = i + 1; k < number_of_files; k++)
+            {
+                if(files_id[i] > files_id[k]){
+                    sortId = files_id[i];
+                    files_id[i] = files_id[k];
+                    files_id[k] = sortId;
+                }
+            }
+            
+        }
+
+        for(int x= 0; x < number_of_files; x++){
+            if (files_id[x] != -1)
+            {
+                printf("%d\t", files_id[x]);
+            }
+            
+        }
+        printf("\n");
+    }    
+      
+    return 0;
 }
+
+
