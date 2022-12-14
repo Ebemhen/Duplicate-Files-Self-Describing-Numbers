@@ -6,9 +6,6 @@ int main(){
 
     int number_of_inputs;
     int number_of_files;
-    char file_names[number_of_files][50];
-    int files_id[number_of_files];
-
 
     FILE*sdfile;
     sdfile = fopen("duplicate.txt", "r");
@@ -20,9 +17,11 @@ int main(){
     fscanf(sdfile, "%d", &number_of_inputs);
     for(int a = 0; a< number_of_inputs; a++) {
         fscanf(sdfile,"%d", &number_of_files);
+        char file_names[number_of_files][50];
+        int files_id[number_of_files];
         
         for (int b = 0; b < number_of_files; b++)
-        {
+        {   
             int idNew;
             char file_name[50];
             fscanf(sdfile, "%s", file_name);
@@ -66,6 +65,7 @@ int main(){
             }
         }  
 
+        //loop to sort the file ids stored, in an ascending order
         int sortId;
         for (int i = 0; i < number_of_files; i++)
         {
@@ -80,6 +80,7 @@ int main(){
             
         }
 
+        //loop to print the file ids
         for(int x= 0; x < number_of_files; x++){
             if (files_id[x] != -1)
             {
@@ -92,5 +93,11 @@ int main(){
       
     return 0;
 }
+
+
+
+
+
+
 
 
