@@ -86,6 +86,7 @@ namespace selfdescribingApp
                 Console.WriteLine("Enter number\n");
                 numberInput = int.Parse(Console.ReadLine());
 
+                //instantiating an object from the class SelfDescribing
                 SelfDescribing Testcase = new SelfDescribing();
                 Testcase.number = numberInput;
                 Testcase.test();
