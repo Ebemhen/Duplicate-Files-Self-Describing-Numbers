@@ -31,10 +31,12 @@ namespace selfdescribingApp
             return count;
         }
 
+        //declaring member variables
         public int number;
         public int temp; public int flag; public int numberDigit;
         public int appearance; public int digit;
 
+        //method to check if number is self-describing
         public void test()
         {
             temp = number;
@@ -69,9 +71,11 @@ namespace selfdescribingApp
 
     class NumberTest
     {
+        //declaring member variables
         public static int testcases;
         public static int numberInput;
 
+        //entry point of the program
         static void Main(string[] args)
         {
             Console.WriteLine("Enter number of testcases\n");
