@@ -1,15 +1,15 @@
-﻿using System;
+using System;
+
 
 namespace AdamStepsApp
 {
     class CheckSteps
     {   
         public int count;
-        public string steps;
-        public void checkStep(steps){
-            foreach(int ch in steps)
+        public void checkStep( string steps){
+            foreach(char ch in steps)
                 {
-                    If(ch == 'U'){
+                    if(ch == 'U'){
                         count++;
                     }
                 }
@@ -19,7 +19,7 @@ namespace AdamStepsApp
 
      class Program
      {
-        public int testcases; public string stepInput;
+        public static int testcases; public static string stepsInput;
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the number of test cases");
@@ -30,8 +30,6 @@ namespace AdamStepsApp
                stepsInput = Console.ReadLine();
                CheckSteps StepCase = new CheckSteps();
                StepCase.checkStep(stepsInput);
-                
-
             }
         }
     }
