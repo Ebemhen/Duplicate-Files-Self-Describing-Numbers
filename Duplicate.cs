@@ -4,6 +4,7 @@ namespace DuplicateFileChecker
 {
     class DuplicateFolder
     {
+        //member variables declared
         public string[] fileNames;
         public int[] newFileIds;
         public string[] newFileNames;
@@ -18,7 +19,7 @@ namespace DuplicateFileChecker
         }
 
 
-
+        //member variables declared
         public string fileNameLetters;
         public string fileNameId;
         char ch;
@@ -40,7 +41,11 @@ namespace DuplicateFileChecker
             }
         }
 
+        //member variable declared
         public int fileId;
+
+        /*method to store the string and digit part of the filename
+        in their respective arrays*/
         public void store(int i)
         {
             fileNames[i] = fileNameLetters;
@@ -53,7 +58,7 @@ namespace DuplicateFileChecker
 
         public int existing_file;
      
-
+        //method to check for duplicate files
         public void checkForDuplicate(int numberOfFiles)
         {
             for (int i = 0; i < numberOfFiles; i++)
@@ -119,6 +124,7 @@ namespace DuplicateFileChecker
         public static  int number_of_files;
         public static  string file_input;
 
+        //entry point of the program
         static void Main(string[] args)
         {
             Console.WriteLine("Enter number of testcases:\t\n");
@@ -128,6 +134,7 @@ namespace DuplicateFileChecker
             {
                 Console.WriteLine("Enter number of files:\t\n");
                 number_of_files = int.Parse(Console.ReadLine());
+                //instantiating a new object from the class DuplicateFolder
                 DuplicateFolder Folder = new DuplicateFolder();
                 Folder.arrayLen(number_of_files);
 
